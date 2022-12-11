@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrap">
+
+  <p>
+  </p>
+  <p>
+
+  </p>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.3.4/lib/darkmode-js.min.js"></script>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+
+<!DOCTYPE html>
+<html>
+    
+</body>
+</html>
+<header>
+<link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
+<script src="https://unpkg.com/videojs-contrib-hls@5.15.0/dist/videojs-contrib-hls.js"></script>
+<script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+<script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+<script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+let arr = [
+    { name: "ASTRO1", value: "https://webdi.openhd.lol/lb/premium294/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
+      { name: "ASTRO2", value: "https://webdi.openhd.lol/lb/premium295/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
+      { name: "MUNDIAL", value: "https://webdi.openhd.lol/lb/premium292/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
+      { name: "FS1", value: "https://webdi.openhd.lol/lb/premium39/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
+      { name: "TSN", value: "https://webdi.openhd.lol/lb/premium111/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
+      { name: "SPORT2", value: "https://webdi.openhd.lol/lb/premium140/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
+      { name: "CBS", value: "https://webdi.openhd.lol/lb/premium308/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
+      { name: "SN", value: "https://webdi.openhd.lol/lb/premium11/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
+      { name: "SPORTV", value: "https://webdi.openhd.lol/lb/premium78/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
+    
+
+	
+];
+
+function parse_query_string(query) {
+  var vars = query.split("&");
+  var query_string = {};
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split("=");
+    var key = decodeURIComponent(pair.shift());
+    var value = decodeURIComponent(pair.join("="));
+    // If first entry with this name
+    if (typeof query_string[key] === "undefined") {
+      query_string[key] = value;
+      // If second entry with this name
+    } else if (typeof query_string[key] === "string") {
+      var arr = [query_string[key], value];
+      query_string[key] = arr;
+      // If third or later entry with this name
+    } else {
+      query_string[key].push(value);
+    }
+  }
+  return query_string;
+}
+
+$(document.body).on('change',"#selectChannel",function (e) {
+   var optVal= $("#selectChannel option:selected").val();
+   console.log(optVal);
+   window.location.replace("?channel="+optVal); 
+})
+
+$(function() {
+	var query = window.location.search.substring(1);
+	var qs = parse_query_string(query);
+	<!-- console.log("qs: " + qs); -->
+	var cn = 'FS1';
+	if(qs.hasOwnProperty('channel')) {
+		<!-- console.log("channel: " + qs.channel); -->
+		cn = qs.channel;
+	}
+	let obj = arr.find(o => o.name === cn);
+	<!-- console.log(obj); -->
+	document.title= 'Watch ' + obj.name + ' free by Nguyen Huy';
+	document.getElementById("tvsource").src=obj.value;
+	document.getElementById("selectChannel").value=obj.name;
+	var player = videojs('tvplay');
+	player.play();
+	
+});
+</script>
+</header>
+<body>
+<center id="maintv">
+<video id='tvplay' class="video-js" width="1000" height="550" controls autoplay muted>
+<source id='tvsource' type="application/x-mpegURL">
+</video>
+</center>
+<p align="center">Pilihin gen cing:
+<select id='selectChannel'>
+  <option value="ASTRO1">ASTRO1</option>
+      <option value="ASTRO2 ">ASTRO2</option>
+      <option value="MUNDIAL ">VTV3 FPT 1080p </option>
+      <option value="FS">VTV5 FPT 1080p</option>
+      <option value="TSN">VTV Cần thơ FPT 1080p</option>
+      <option value="SPORT2">VTV Cần Thơ VTVGO 1080p</option>	
+      <option value="CBS">VTV Cần Thơ TV360 720p</option>
+      <option value="SN">VTV1 FPT 720p</option>
+      <option value="SPORTV ">VTV2 FPT 720p</option>
+      
+     
+   
+</select>
+ 
+<center><script type="text/javascript" src="https://www.counters-free.net/count/bsdf"></script><br></center>
+
+
+</html>
+</p>
+</body>
