@@ -39,18 +39,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
 let arr = [
-    { name: "ASTRO1", value: "https://is-tucuman.cdn.rcs.net.ar/mnp/dsc_turbo/output.mpd"},
-      { name: "ASTRO2", value: "https://webdi.openhd.lol/lb/premium295/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
-      { name: "MUNDIAL", value: "https://webdi.openhd.lol/lb/premium292/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
-      { name: "FS1", value: "https://webdi.openhd.lol/lb/premium39/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
-      { name: "TSN", value: "https://webdi.openhd.lol/lb/premium111/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
-      { name: "SPORT2", value: "https://webdi.openhd.lol/lb/premium140/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
-      { name: "CBS", value: "https://webdi.openhd.lol/lb/premium308/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
-      { name: "SN", value: "https://webdi.openhd.lol/lb/premium11/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
-      { name: "SPORTV", value: "https://webdi.openhd.lol/lb/premium78/index.m3u8|Referer=https://streamservicehd.click/&e=.m3u8"},
-    
-
-	
+    { name: "TVONE", value: "http://rr2.dens.tv/s/s105/index3.m3u8"},
+      { name: "KOMPAS", value: "http://rr2.dens.tv/s/s104/index10.m3u8"},
+      { name: "BERITA SATU", value: "http://b1news.beritasatumedia.com/Beritasatu/B1News_1280x720.m3u8"},
+      { name: "SCTV", value: "http://rr2.dens.tv/s/s03/index.m3u8"},
+      { name: "INDOSIAR", value: "http://rr2.dens.tv/s/s04/index.m3u8"},
+      { name: "TRANS7", value: "https://video.detik.com/trans7/smil:trans7.smil/chunklist_w1569758602_b744100_sleng.m3u8"},
+      { name: "TRANSTV", value: "https://video.detik.com/transtv/smil:transtv.smil/chunklist_w1561775419_b744100_sleng.m3u8"},
+      { name: "NET", value: "http://rr2.dens.tv/s/s08/index10.m3u8"},
+      { name: "ANTV", value: "http://rr2.dens.tv/s/s07/index3.m3u8"},
+      { name: "OCHANNEL", value: "http://rr2.dens.tv/s/s41/index.m3u8"},
+      { name: "TVRI", value: "http://rr2.dens.tv/s/s11/index10.m3u8"},
+      { name: "KIX", value: "http://rr1.dens.tv/h/h07/index.m3u8"},
+      { name: "FIGHTSPORT", value: "http://rr1.dens.tv/h/h05/index.m3u8"},
 ];
 
 function parse_query_string(query) {
@@ -85,7 +86,7 @@ $(function() {
 	var query = window.location.search.substring(1);
 	var qs = parse_query_string(query);
 	<!-- console.log("qs: " + qs); -->
-	var cn = 'FS1';
+	var cn = 'TVONE';
 	if(qs.hasOwnProperty('channel')) {
 		<!-- console.log("channel: " + qs.channel); -->
 		cn = qs.channel;
@@ -109,16 +110,19 @@ $(function() {
 </center>
 <p align="center">Pilihin gen cing:
 <select id='selectChannel'>
-  <option value="ASTRO1">ASTRO1</option>
-      <option value="ASTRO2 ">ASTRO2</option>
-      <option value="MUNDIAL ">MUNDIAL </option>
-      <option value="FS">FS</option>
-      <option value="TSN">TSN</option>
-      <option value="SPORT2">SPORT2</option>	
-      <option value="CBS">CBS</option>
-      <option value="SN">SN</option>
-      <option value="SPORTV ">SPORTV</option>
-      
+  <option value="TVONE">TVONE</option>
+      <option value="KOMPAS">KOMPAS</option>
+      <option value="BERITA SATU ">BERITA SATU</option>
+      <option value="SCTV">SCTV</option>
+      <option value="INDOSIAR">INDOSIAR</option>
+      <option value="TRANS7">TRANS7</option>	
+      <option value="TRANSTV">TRANSTV</option>
+      <option value="NET">NET</option>
+      <option value="ANTV">ANTV</option>
+      <option value="OCHANNEL">OCHANNEL</option>	
+      <option value="TVRI">TVRI</option>
+      <option value="KIX">KIX</option>
+      <option value="FIGHTSPORT">FIGHTSPORT</option>
      
    
 </select>
